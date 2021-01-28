@@ -1,0 +1,172 @@
+
+CREATE EXTENSION influxdb_fdw CASCADE;
+CREATE SERVER influxdb_svr FOREIGN DATA WRAPPER influxdb_fdw
+  OPTIONS (dbname 'coredb', host 'http://localhost', port '8086');
+CREATE USER MAPPING FOR CURRENT_USER SERVER influxdb_svr OPTIONS (user 'user', password 'pass');
+
+
+J1_TBL
+select fields->'i', fields->'j',fields->'t' from J1_TBL
+
+J2_TBL
+select fields->'i', fields->'k' from J2_TBL
+
+tenk1
+select fields->'unique1' unique1, fields->'unique2' unique2, fields->'two' two, fields->'four' four, fields->'ten' ten, fields->'twenty' twenty, fields->'hundred' hundred, fields->'thousand' thousand, fields->'twothousand' twothoudsand, fields->'fivethous' fivehous, fields->'tenthous' tenthous, fields->'odd' odd, fields->'even' even, fields->'stringu1' stringu1, fields->'stringu2' stringu2, fields->'string4' string4 from tenk1
+
+tenk2
+select fields->'unique1' unique1, fields->'unique2' unique2, fields->'two' two, fields->'four' four, fields->'ten' ten, fields->'twenty' twenty, fields->'hundred' hundred, fields->'thousand' thousand, fields->'twothousand' twothoudsand, fields->'fivethous' fivehous, fields->'tenthous' tenthous, fields->'odd' odd, fields->'even' even, fields->'stringu1' stringu1, fields->'stringu2' stringu2, fields->'string4' string4 from tenk2
+
+INT4_TBL
+select fields->'f1' f1 from INT4_TBL
+
+FLOAT8_TBL
+select fields->'f1' f1 from FLOAT8_TBL
+
+INT8_TBL
+select fields->'q1' q1, fields->'q2' q2 from INT8_TBL
+
+text_tbl
+select fields->'f1' f1 from text_tbl
+
+INT2_TBL
+select fields->'f1' f1 from INT2_TBL
+
+a3
+select fields->'id' id, fields->'b_id' b_id from a3
+
+b3
+select fields->'id' id, fields->'c_id' c_id from b3
+
+c3
+select fields->'id' id from c3
+
+d3
+select fields->'a' a, fields->'b' b from d3
+
+
+parent
+select fields->'k' k, fields->'pd' pd from parent
+
+child
+select fields->'k' k, fields->'cd' cd from child
+
+
+a4
+select fields->'id' id from a4
+
+b4
+select fields->'id' id, fields->'a_id' a_id from b4
+
+innertab
+select fields->'id' id, fields->'dat1' dat1 from innertab
+
+
+fkest
+select fields->'a' a, fields->'b' b, fields->'c' c from fkest
+
+fkest1
+select fields->'a' a, fields->'b' b from fkest1
+
+t11
+select fields->'name' name, fields->'n' n from t11
+
+t21
+select fields->'name' name, fields->'n' n from t21
+
+t31
+select fields->'name' name, fields->'n' n from t31
+
+x
+select fields->'x1' x1, fields->'x2' x2 from x
+
+y
+select fields->'y1' y1, fields->'y2' y2 from x
+
+t12
+select fields->'a' a, fields->'b' b from 12
+
+t22
+select fields->'a' a, fields->'b' b from t22
+
+t32
+select fields->'a' a, fields->'b' b from 32
+
+tt1
+select fields->'tt1_id', fields->'joincol' from tt1
+
+tt2
+select fields->'tt1_id', fields->'joincol' from tt2
+
+tt3
+select fields->'f1', fields->'f2' from tt3
+
+
+tt4
+select fields->'f1' from tt4
+
+tt4x
+select fields->'c1', fields->'c2', fields->'c3' from tt4x
+
+tt5x
+select fields->'f1', fields->'f2' from tt5x
+
+tt6x
+select fields->'f1', fields->'f2' from tt6x
+
+
+xx  
+select fields->'pkxx' from xx
+
+yy
+select fields->'pkyy', fields->'pkxx' from yy
+
+zt1
+select fields->'f1' from zt1
+
+zt2
+select fields->'f2' from zt2
+
+zt3
+select fields->'f3' from zt3
+
+
+a1
+select fields->'i' from a1
+
+b1
+select fields->'x', fields->'y' from b1
+
+a2
+select fields->'code' from a2
+
+b2
+select fields->'a', fields->'num' from b2
+
+c2
+select fields->'name', fields->'a' from c2
+
+nt1
+select fields->'id', fields->'a1', fields->'a2' from nt1
+
+nt2
+select fields->'id', fields->'nt1_id', fields->'b1', fields->'b2' from nt2
+
+nt3
+select fields->'id', fields->'nt2_id', fields->'c1', from nt2
+
+j11
+select fields->'id' id from j11
+select fields->'id' id from j21
+select fields->'id' id from j31
+
+select fields->'id1' id1, fields->'id2' id2 from j12
+select fields->'id1' id1, fields->'id2' id2 from j22
+
+select fields->'id1' id1, fields->'id2' id2 from j23
+
+
+
+
+
+
